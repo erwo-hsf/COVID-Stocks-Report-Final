@@ -24,10 +24,7 @@ format:
     toc: true
     number-sections: true
     title-block-banner: true
-
-# optional: erstmal raus lassen, falls es Probleme macht
-# filters:
-#   - filters/wordcount.lua
+    theme: cosmo
 ---
 
 *Word count: WORDCOUNT*
