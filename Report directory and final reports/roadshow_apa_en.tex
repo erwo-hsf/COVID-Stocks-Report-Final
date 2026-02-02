@@ -1,0 +1,899 @@
+\documentclass[
+  stu,
+  floatsintext,
+  longtable,
+  a4paper,
+  nolmodern,
+  notxfonts,
+  notimes,
+  12pt,
+  colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{apa7}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\geometry{right=2.5cm,left=4.5cm,top=2.5cm,bottom=2.5cm}
+\fancyhfoffset[LE,RO]{0cm}
+
+\usepackage[bidi=default]{babel}
+\babelprovide[main,import]{english}
+
+
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+\RequirePackage{longtable}
+\RequirePackage{threeparttablex}
+
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-.5em}%
+	{\normalfont\normalsize\bfseries\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{0.5em}%
+	{0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+	{-\z@\relax}%
+	{\normalfont\normalsize\bfseries\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
+
+
+
+\usepackage{longtable, booktabs, multirow, multicol, colortbl, hhline, caption, array, float, xpatch}
+\usepackage{subcaption}
+
+
+\renewcommand\thesubfigure{\Alph{subfigure}}
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\floatpagefraction}{0.7}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{listings,theorems, breakable, skins}
+\usepackage{fontawesome5}
+
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{ACACAC}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582EC}
+\definecolor{quarto-callout-important-color-frame}{HTML}{D9534F}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{F0AD4E}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02B875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{FD7E14}
+
+%\newlength\Oldarrayrulewidth
+%\newlength\Oldtabcolsep
+
+
+\usepackage{hyperref}
+
+
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+
+
+
+
+\usepackage{newtx}
+
+\defaultfontfeatures{Scale=MatchLowercase}
+\defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+
+
+
+
+
+\title{XXX Your Title XXX:}
+
+
+\shorttitle{}
+
+
+\usepackage{etoolbox}
+
+
+\duedate{XXX January 13, 2026 XXX}
+
+
+
+
+\author{XXX Your Name XXX}
+
+
+
+\affiliation{
+{Cologne, }}
+
+
+
+
+\leftheader{XXX}
+
+
+
+
+
+
+\authornote{ 
+
+\par{       }
+\par{Correspondence concerning this article should be addressed to XXX
+Your Name XXX}
+}
+
+\makeatletter
+\let\endoldlt\endlongtable
+\def\endlongtable{
+\hline
+\endoldlt
+}
+\makeatother
+
+\urlstyle{same}
+
+
+
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+% From https://tex.stackexchange.com/a/645996/211326
+%%% apa7 doesn't want to add appendix section titles in the toc
+%%% let's make it do it
+\makeatletter
+\xpatchcmd{\appendix}
+  {\par}
+  {\addcontentsline{toc}{section}{\@currentlabelname}\par}
+  {}{}
+\makeatother
+
+%% Disable longtable counter
+%% https://tex.stackexchange.com/a/248395/211326
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\LT@caption}
+  {\bgroup}
+  {\bgroup\global\LTpatch@captiontrue}
+  {}{}
+\patchcmd{\longtable}
+  {\par}
+  {\par\global\LTpatch@captionfalse}
+  {}{}
+\apptocmd{\endlongtable}
+  {\ifLTpatch@caption\else\addtocounter{table}{-1}\fi}
+  {}{}
+\newif\ifLTpatch@caption
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+
+
+\setcounter{secnumdepth}{3}
+
+\setlength\LTleft{0pt}
+
+
+
+
+\section*{Abstract}\label{abstract}
+\addcontentsline{toc}{section}{Abstract}
+
+\noindent  This template was created by Prof.~Dr.~Stephan Huber and is
+based on the Quarto extension apaquarto
+(\citeproc{ref-Schneider2024quarto}{\textbf{Schneider2024quarto?}}) and
+the \LaTeX~package apa7
+(\citeproc{ref-Weiss2022Formatting}{\textbf{Weiss2022Formatting?}}). For
+the most part, it is designed in accordance with APA stlye (7th Edition)
+guidelines. However, some adjustments have been made to conform to the
+formatting requirements specified in the ``Handbook of Academic
+Writing''
+(\citeproc{ref-Hildebrandt2019Handbook}{\textbf{Hildebrandt2019Handbook?}}).
+
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+\newpage
+
+\section{Introduction}\label{introduction}
+
+This is a template. You can use it to write your student paper or your
+thesis with Quarto. The formatting follows the guidelines set out in
+(\citeproc{ref-ConciseGuideAPA2020}{\textbf{ConciseGuideAPA2020?}}),
+also known as the APA rules in the 7th Edition. This template was
+written by me, Prof.~Dr.~Stephan Huber\footnote{Email:
+  \texttt{stephan.huber@hs-fresenius.de}}. I have adapted the Quarto
+extension \texttt{apaquarto} from
+(\citeproc{ref-Schneider2024quarto}{\textbf{Schneider2024quarto?}}) and
+the \LaTeX~package apa7
+(\citeproc{ref-Weiss2022Formatting}{\textbf{Weiss2022Formatting?}}). The
+title page was created according to the specifications of the University
+of Applied Science Fresenius. In comparison to APA 7 a few little things
+differ. For example, the headings have different font sizes and the line
+spacing is 1.5.\\
+If you have any suggestions for improvement, please let me know. If you
+need help with Quarto, you are welcome to drop by during my office
+hours. All informations on how to contact me can be found on my
+\href{https://hubchev.github.io/}{personal website}.
+
+You can download the template with the corresponding files on studynet
+and here: \url{https://github.com/hubchev/temp_apa_en}.
+
+In the following sections, I will show you a little about how to use
+Quarto to write and format text. If you need more information about
+Quarto, you can get a lot of information from
+(\citeproc{ref-Schneider2024quarto}{\textbf{Schneider2024quarto?}}) and
+the website \url{https://quarto.org/}.
+
+\section{Formatting Text}\label{formatting-text}
+
+\subsection{Set Sections and Format
+Text}\label{set-sections-and-format-text}
+
+APA strictly regulates the formatting of headings, see:
+\url{https://apastyle.apa.org/style-grammar-guidelines/paper-format/headings}
+
+\subsubsection{This Is a Subsection}\label{this-is-a-subsection}
+
+A section should not come alone, so\ldots{}
+
+\subsubsection{The Second Subsection}\label{the-second-subsection}
+
+This is where your text belongs.
+
+\subsection{Bold and Italics}\label{bold-and-italics}
+
+\textbf{This is bold text}
+
+\textbf{This is bold text}
+
+\emph{This is italic text}
+
+\emph{This is italic text}
+
+\subsection{Lists}\label{lists}
+
+\begin{itemize}
+\tightlist
+\item
+  Create a list by starting a line with \texttt{+}, \texttt{-} or
+  \texttt{*}
+\item
+  Sublists are created by indenting by 2 spaces:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Changing the selection character forces the start of a new list:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      bli
+    \item
+      bla
+    \item
+      blubb
+    \end{itemize}
+  \end{itemize}
+\item
+  Very simple!
+\end{itemize}
+
+Numbered lists are simple:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  one argument.
+\item
+  another argument.
+\item
+  the best argument.
+\item
+  you can use consecutive numbers\ldots{}
+\item
+  \ldots or keep all numbers as \texttt{1.}
+\end{enumerate}
+
+You can also start numbering with a higher number:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{56}
+\tightlist
+\item
+  foo
+\item
+  bar
+\end{enumerate}
+
+\subsection{Formulas}\label{formulas}
+
+If \(a \ne 0\), there are two solutions to the equation
+\((ax^2 + bx + c = 0)\) and they are
+\[ x = \frac{-b \pm \sqrt{b^2-4ac}}{2a} \]
+
+\subsection{\texorpdfstring{\href{https://github.com/markdown-it/markdown-it-footnote}{Footnotes}}{Footnotes}}\label{footnotes}
+
+Footnote 1 Reference\footnote{Footnote \textbf{may contain markup}
+
+  and multiple paragraphs.}.
+
+Footnote 2 Reference \footnote{Footnote text.}.
+
+Inline footnote\footnote{text of inline footnote} Definition.
+
+Double footnote reference\footnote{Footnote text.}.
+
+\subsection{Tables}\label{tables}
+
+Tables can be created flexibly with Markdown. The possibilities are
+explained on the website
+\url{https://quarto.org/docs/authoring/tables.html}.
+Table~\ref{tbl-example}, for example, is created with Markdown code.
+
+\begin{table}
+
+{\caption{{An Example Table Created With
+Markdown}{\label{tbl-example}}}}
+
+\begin{longtable}[]{@{}llrc@{}}
+\toprule\noalign{}
+Default & Left & Right & Center \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+12 & 12 & 12 & 12 \\
+123 & 123 & 123 & 123 \\
+1 & 1 & 1 & 1 \\
+\end{longtable}
+
+\noindent \emph{Note.} Here~is a note.
+
+\end{table}
+
+\subsection{Figures}\label{figures}
+
+\subsubsection{Include Image Files}\label{sec-imageload}
+
+In Figure~\ref{fig-logo} you can see the logo of the university. In
+Figure~\ref{fig-logo2}, the logo is displayed smaller and integrated
+using a different method. However, both methods are practically
+equivalent. Finally, the tiny logo in Figure~\ref{fig-logo3} offers
+another method of integrating images.
+
+\begin{figure}[t]
+
+{\caption{{A Large Logo}{\label{fig-logo}}}}
+
+\includegraphics[width=3in,height=\textheight,keepaspectratio]{logo.png}
+
+\noindent \emph{Note.} Here~is a note about the image.
+
+\end{figure}
+
+\begin{figure}[t]
+
+\caption{\label{fig-logo2}A Medium Sized Logo.}
+
+\includegraphics[width=0.3\linewidth,height=\textheight,keepaspectratio]{logo.png}
+
+\emph{Note.} There is also a note about the image here.
+
+\end{figure}%
+
+\begin{figure}[t]
+
+{\caption{{The Tiny Logo of the University.}{\label{fig-logo3}}}}
+
+\pandocbounded{\includegraphics[keepaspectratio]{logo.png}}
+
+\noindent \emph{Note.} There~is also a note about the image here.
+
+\end{figure}
+
+\subsubsection{Include Graphics Created With
+R}\label{include-graphics-created-with-r}
+
+In Figure~\ref{fig-plotcar} a scatterplot is visualized which was
+generated directly in R. This has the advantage that the data is
+generated and visualized directly in Quarto. The data is therefore
+always up-to-date, changes can be made directly here, the work is
+completely transparent and replicable. In addition, there is no need to
+save and export the graphic.
+
+In the Appendix \textbf{?@sec-Ap1}, you find another exampl, that is,
+Figure~\ref{fig-logo4}. Appendix \textbf{?@sec-Ap2} contains
+Figure~\ref{fig-logo5}.
+
+\begin{figure}[t]
+
+{\caption{{This Is a Caption for an Ugly Image.}{\label{fig-plotcar}}}}
+
+\pandocbounded{\includegraphics[keepaspectratio]{roadshow_apa_en_files/figure-pdf/fig-plotcar-1.pdf}}
+
+\noindent \emph{Note.} There~is also a note about the image here.
+
+\end{figure}
+
+\section{Sources}\label{sources}
+
+\subsection{BibTeX}\label{bibtex}
+
+This template comes with the file \texttt{literatur.bib}. This is a
+BibTeX file and makes it easier to cite sources and create
+bibliographies. Here is an explanation of how a BibTeX file works and
+why it is useful.
+
+A BibTeX file makes it possible to store and organize all references in
+one place. This makes it easier to manage sources, especially for large
+works. Quarto can automatically access the BibTeX file to create
+citations and bibliographies. This saves time and reduces errors
+compared to creating bibliographies manually. By using a BibTeX file,
+citations and bibliographies are formatted consistently, according to
+the specifications of the respective citation style. I recommend the use
+of a reference management program. You can find more information on this
+in Section~\ref{sec-jabref}.
+
+A BibTeX file is a text-based file with the extension \texttt{.bib} that
+contains bibliographic entries. Each entry in the file describes a
+source (e.g.~a book, an article, a website) and contains various fields
+such as author, title, year and publisher. As an example, I have packed
+all possible partly fictitious entries into the file. Here are the first
+lines of the file:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{@Article\{Huber2016,}
+\NormalTok{  author = \{Stephan Huber and Christoph Rust\},}
+\NormalTok{  title = \{osrmtime: Calculate Travel Time and Distance with \{OpenStreetMap\} Data Using the \{Open Source Routing Machine\} (\{OSRM\})\},}
+\NormalTok{  journal = \{The Stata Journal\},}
+\NormalTok{  year = \{2016\},}
+\NormalTok{  volume = \{16\},}
+\NormalTok{  number = \{2\},}
+\NormalTok{  pages = \{416{-}423\}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Each literature entry has a similar structure. First comes the
+specification of the type of literature (here: \texttt{@Article}). Then
+the so-called BibTeX key (here: \texttt{Huber2016}). This makes it
+possible to set a corresponding reference in the text, see
+Section~\ref{sec-cite}. Finally, there is the information that is
+further processed by the selected citation style (default: APA 7). In
+Appendix \textbf{?@sec-bibtexfile} you find the BibTeX entries for
+various types of documents.
+
+\subsection{Literature Management}\label{sec-jabref}
+
+A BibTeX file can quickly become confusing. I therefore recommend using
+a reference management program such as JabRef, see:
+\url{www.jabref.org}. The program is free and works on all your devices
+and with all operating systems. In particular, it can handle BibTeX
+files well. You may wonder what a BibTeX file is. Install JabRef and
+open the \texttt{bibliography.bib} file of this template, then you will
+understand what I mean.
+
+\subsection{APA, Chicago, and CSL}\label{sec-apa}
+
+The predefined bibliography style of this template is APA in the 7th
+edition. You can change this. To do this, simply specify the
+corresponding style in the (YAML) header of this template. This is done
+using a file with the extension \texttt{CSL} which stands for ``Citation
+Style Language''. This file contains the citation rules so that the
+computer can implement them. On \url{https://www.zotero.org/styles} you
+will find a variety of styles. For example, if you want to use APA in
+the 6th edition, enter the following in the header:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{csl: "https://www.zotero.org/styles/apa{-}6th{-}edition"}
+\end{Highlighting}
+\end{Shaded}
+
+If you want to use Chicago Manual Stlye in the 17th edition, enter the
+following in the header:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{csl: "https://www.zotero.org/styles/chicago{-}author{-}date" }
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Cite Literature}\label{sec-cite}
+
+Other works are often cited in scientific texts. This can be done in
+many different ways. Table~\ref{tbl-letters} shows how to cite.
+
+\begin{table}
+
+{\caption{{This Is How Literature Can Be Cited}{\label{tbl-letters}}}}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4545}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5455}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Code
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+How it appears in the text
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{@Huber2016} & (\citeproc{ref-Huber2016}{\textbf{Huber2016?}}) \\
+\texttt{@Huber2016{[}2{]}} &
+(\citeproc{ref-Huber2016}{\textbf{Huber2016?}}) \\
+\texttt{{[}@Huber2016{]}} &
+(\citeproc{ref-Huber2016}{\textbf{Huber2016?}}) \\
+\texttt{{[}@Huber2016,\ 3-5{]}} &
+(\citeproc{ref-Huber2016}{\textbf{Huber2016?}}) \\
+\texttt{{[}@Huber2016;\ @Aust2023{]}} &
+(\citeproc{ref-Huber2016}{\textbf{Huber2016?}};
+\citeproc{ref-Aust2023}{\textbf{Aust2023?}}) \\
+\texttt{{[}see\ @Aust2023,\ p.\ 31;\ @Huber2016,\ p.\ 13{]}} & (see
+\citeproc{ref-Aust2023}{\textbf{Aust2023?}};
+\citeproc{ref-Huber2016}{\textbf{Huber2016?}}) \\
+\end{longtable}
+
+\end{table}
+
+Hyperlinks can also be set. For example,
+\texttt{{[}Google{]}(www.google.de)} appears as
+\href{www.google.de}{Google}. In academic papers, sources should always
+be included in the bibliography and hyperlinks do not work in printed
+form. Here is an example: \href{www.google.de}{Google} is a popular
+online search engine (see
+\citeproc{ref-Google2023Google}{\textbf{Google2023Google?}}).
+
+\subsection{Various Formats}
+
+Here are some fictitious examples of different types of literature:
+(\citeproc{ref-unpublished}{\textbf{unpublished?}}),
+(\citeproc{ref-techreport}{\textbf{techreport?}}),
+(\citeproc{ref-phdthesis}{\textbf{phdthesis?}}),
+(\citeproc{ref-misc}{\textbf{misc?}}),
+(\citeproc{ref-mastersthesis}{\textbf{mastersthesis?}}),
+(\citeproc{ref-incollection}{\textbf{incollection?}}),
+(\citeproc{ref-inbook}{\textbf{inbook?}}),
+(\citeproc{ref-conference}{\textbf{conference?}}),
+(\citeproc{ref-booklet}{\textbf{booklet?}}),
+(\citeproc{ref-book}{\textbf{book?}}),
+(\citeproc{ref-article}{\textbf{article?}}),
+(\citeproc{ref-proceedings}{\textbf{proceedings?}}),
+(\citeproc{ref-webpage}{\textbf{webpage?}}).
+
+The corresponding bibtex file should contain the entries. They are
+displayed in \textbf{?@sec-bibtexfile}.
+
+\clearpage
+
+\section*{References}\label{references}
+\addcontentsline{toc}{section}{References}
+
+\phantomsection\label{refs}
+
+\clearpage
+\appendix
+
+\appendix
+
+\section{Additional Figures}\label{apx-sec-Ap1}
+
+Here is text and Figure~\ref{fig-logo4}.
+
+\begin{figure}
+
+{\caption{{Logo of the University.}{\label{fig-logo4}}}}
+
+\includegraphics[width=2in,height=\textheight,keepaspectratio]{logo.png}
+
+\noindent \emph{Note.} This~is the logo of Hochschule Fresenius.
+
+\end{figure}
+
+\newpage
+
+\section{Second Attachment}\label{apx-sec-Ap2}
+
+Here is text and Figure~\ref{fig-logo5}.
+
+\begin{figure}
+
+{\caption{{The Logo Again}{\label{fig-logo5}}}}
+
+\includegraphics[width=2in,height=\textheight,keepaspectratio]{logo.png}
+
+\noindent \emph{Note.} This~is the logo of Hochschule Fresenius.
+
+\end{figure}
+
+\newpage
+
+\section{BibTex file}\label{apx-sec-bibtexfile}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    @Unpublished\{unpublished,}
+\NormalTok{        author = \{Andy Unpublished\},}
+\NormalTok{        title  = \{The title of the work\},}
+\NormalTok{        month  = \{7\},}
+\NormalTok{        year   = \{1993\},}
+\NormalTok{    \}}
+    
+\NormalTok{    @TechReport\{techreport,}
+\NormalTok{        author      = \{Peter WorkingPaper\},}
+\NormalTok{        title       = \{The title of the work\},}
+\NormalTok{        institution = \{The institution that published\},}
+\NormalTok{        year        = \{1993\},}
+\NormalTok{        number      = \{2\},}
+\NormalTok{        address     = \{The address of the publisher\},}
+\NormalTok{        month       = \{7\},}
+\NormalTok{    \}}
+    
+\NormalTok{    @PhdThesis\{phdthesis,}
+\NormalTok{        author  = \{Andreas PHD\},}
+\NormalTok{        title   = \{The title of the work\},}
+\NormalTok{        school  = \{The school of the thesis\},}
+\NormalTok{        year    = \{2011\},}
+\NormalTok{        address = \{The address of the publisher\},}
+\NormalTok{        month   = \{7\},}
+\NormalTok{    \}}
+    
+\NormalTok{    @Misc\{misc,}
+\NormalTok{        author       = \{Alexandra Misc\},}
+\NormalTok{        title        = \{The title of the work\},}
+\NormalTok{        howpublished = \{How it was published\},}
+\NormalTok{        month        = \{4\},}
+\NormalTok{        year         = \{1993\},}
+\NormalTok{    \}}
+    
+\NormalTok{    @MastersThesis\{mastersthesis,}
+\NormalTok{        author  = \{Alex Masterthesis\},}
+\NormalTok{        title   = \{The title of the work\},}
+\NormalTok{        school  = \{The school of the thesis\},}
+\NormalTok{        year    = \{2004\},}
+\NormalTok{        address = \{The address of the publisher\},}
+\NormalTok{        month   = \{10\},}
+\NormalTok{    \}}
+    
+\NormalTok{    @InCollection\{incollection,}
+\NormalTok{        author    = \{Eli Editor\},}
+\NormalTok{        title     = \{The title of the work\},}
+\NormalTok{        booktitle = \{The title of the book\},}
+\NormalTok{        publisher = \{The name of the publisher\},}
+\NormalTok{        year      = \{2022\},}
+\NormalTok{        editor    = \{The editor\},}
+\NormalTok{        volume    = \{4\},}
+\NormalTok{        series    = \{2\},}
+\NormalTok{        chapter   = \{8\},}
+\NormalTok{        pages     = \{101{-}114\},}
+\NormalTok{        address   = \{The address of the publisher\},}
+\NormalTok{        edition   = \{3\},}
+\NormalTok{        month     = \{7\},}
+\NormalTok{    \}}
+    
+\NormalTok{    @InBook\{inbook,}
+\NormalTok{        chapter   = \{8\},}
+\NormalTok{        pages     = \{201{-}213\},}
+\NormalTok{        title     = \{The title of the work\},}
+\NormalTok{        publisher = \{The name of the publisher\},}
+\NormalTok{        year      = \{1993\},}
+\NormalTok{        author    = \{Suzy Inbook\},}
+\NormalTok{        volume    = \{4\},}
+\NormalTok{        series    = \{5\},}
+\NormalTok{        address   = \{The address of the publisher\},}
+\NormalTok{        edition   = \{3\},}
+\NormalTok{        month     = \{7\},}
+\NormalTok{    \}}
+    
+\NormalTok{    @Conference\{conference,}
+\NormalTok{        author       = \{David Conference\},}
+\NormalTok{        title        = \{The title of the work\},}
+\NormalTok{        booktitle    = \{The title of the book\},}
+\NormalTok{        year         = \{1986\},}
+\NormalTok{        editor       = \{The editor\},}
+\NormalTok{        volume       = \{4\},}
+\NormalTok{        series       = \{5\},}
+\NormalTok{        pages        = \{213\},}
+\NormalTok{        address      = \{The address of the publisher\},}
+\NormalTok{        month        = \{7\},}
+\NormalTok{        organization = \{The organization\},}
+\NormalTok{        publisher    = \{The publisher\},}
+\NormalTok{    \}}
+    
+\NormalTok{    @Booklet\{booklet,}
+\NormalTok{        title        = \{The title of the work\},}
+\NormalTok{        author       = \{Betty Booklet\},}
+\NormalTok{        howpublished = \{How it was published\},}
+\NormalTok{        address      = \{The address of the publisher\},}
+\NormalTok{        month        = \{7\},}
+\NormalTok{        year         = \{1996\},}
+\NormalTok{    \}}
+    
+\NormalTok{    @Book\{book,}
+\NormalTok{        title     = \{The title of the work\},}
+\NormalTok{        publisher = \{The name of the publisher\},}
+\NormalTok{        year      = \{2023\},}
+\NormalTok{        author    = \{Debbie Book\},}
+\NormalTok{        volume    = \{4\},}
+\NormalTok{        series    = \{10\},}
+\NormalTok{        address   = \{The address\},}
+\NormalTok{        edition   = \{3\},}
+\NormalTok{        month     = \{7\},}
+\NormalTok{        isbn      = \{3257442892\},}
+\NormalTok{    \}}
+    
+\NormalTok{    @Article\{article,}
+\NormalTok{        author  = \{Sepp Article\},}
+\NormalTok{        title   = \{The title of the work\},}
+\NormalTok{        journal = \{The name of the journal\},}
+\NormalTok{        year    = \{2011\},}
+\NormalTok{        volume  = \{4\},}
+\NormalTok{        number  = \{2\},}
+\NormalTok{        pages   = \{201{-}213\},}
+\NormalTok{        month   = \{7\},}
+\NormalTok{    \}}
+    
+\NormalTok{    @Proceedings\{proceedings,}
+\NormalTok{        title        = \{The title of the work\},}
+\NormalTok{        year         = \{1993\},}
+\NormalTok{        editor       = \{Luc Proceedings\},}
+\NormalTok{        volume       = \{4\},}
+\NormalTok{        series       = \{5\},}
+\NormalTok{        address      = \{The address of the publisher\},}
+\NormalTok{        publisher    = \{The name of the publisher\},}
+\NormalTok{        month        = \{7\},}
+\NormalTok{        organization = \{The organization\},}
+\NormalTok{    \}}
+    
+\NormalTok{    @Misc\{webpage,}
+\NormalTok{        author = \{Author Website\},}
+\NormalTok{        title  = \{Website Title\},}
+\NormalTok{        year   = \{2023\},}
+\NormalTok{        note   = \{Accessed on April 14, 2023\},}
+\NormalTok{        url    = \{http://website{-}url.com\},}
+\NormalTok{    \}}
+\end{Highlighting}
+\end{Shaded}
+
+
+
+
+
+
+
+\end{document}

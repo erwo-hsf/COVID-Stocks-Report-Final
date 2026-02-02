@@ -1,0 +1,489 @@
+---
+university: "XXX Hochschule Fresenius / University of Applied Science XXX"
+studiengang: |
+    | XXX Faculty of Economics and Media XXX
+    | XXX International Business School XXX
+    | XXX International Business Management XXX
+place: "XXX Cologne Campus XXX"
+
+title: "XXX Your Title XXX"
+title-secondline: ""
+subtitle: ""
+shorttitle: ""
+suppress-short-title: true
+
+
+thesistype: "XXX Bachelor’s/Master’s Thesis XXX"
+studyprogram: "XXX Bachelor of Arts (B.A.)/Bachelor of Laws (LL.B.)/Bachelor of Science (B.Sc.)/Master of Arts (M.A.)/Master of Business Administration (MBA)/Master of Science (M.Sc.) XXX"
+  
+author:
+  - name: "XXX Your Name XXX"
+    affiliations:
+      city: Cologne
+    corresponding: true
+studentid: "XXX"
+examiner1: Prof. Dr. XXX
+examiner2: Prof. Dr. XXX
+
+duedate: "XXX January 13, 2026 XXX"
+
+nondisclosure: false
+nondisclosuredate: "January 1, 2076"
+
+bibliography: "literatur.bib"
+# csl: "https://www.zotero.org/styles/deutsche-gesellschaft-fur-psychologie"
+# csl: "https://www.zotero.org/styles/chicago-author-date"
+# csl: "https://www.zotero.org/styles/apa-6th-edition"
+format:
+  apaquarto-pdf:
+    documentmode: stu
+geometry:
+  - right=2.5cm
+  - left=4.5cm
+  - top=2.5cm
+  - bottom=2.5cm
+floatsintext: true
+fig-pos: 't'
+tbl-pos: 't'
+number-sections: true
+a4paper: true
+fontsize: 12pt
+indent-skip-first: false
+indent-skip-all: false
+lang: en
+keep-tex: true
+---
+
+# Abstract {-}
+
+\noindent 
+This template was created by Prof. Dr. Stephan Huber and is based on the Quarto extension apaquarto [@Schneider2024quarto] and the \LaTeX\ package apa7 [@Weiss2022Formatting]. For the most part, it is designed in accordance with APA stlye (7th Edition) guidelines. However, some adjustments have been made to conform to the formatting requirements specified in the "Handbook of Academic Writing" [@Hildebrandt2019Handbook, Section 4.1.2].
+
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+
+\newpage
+# Introduction
+
+
+
+This is a template. You can use it to write your student paper or your thesis with Quarto. The formatting follows the guidelines set out in @ConciseGuideAPA2020,  also known as the APA rules in the 7th Edition. This template was written by me, Prof. Dr. Stephan Huber^[Email: `stephan.huber@hs-fresenius.de`]. I have adapted the Quarto extension `apaquarto` from @Schneider2024quarto and the \LaTeX\ package apa7 [@Weiss2022Formatting]. The title page was created according to the specifications of the University of Applied Science Fresenius. 
+In comparison to APA 7 a few little things differ. For example, the headings have different font sizes and the line spacing is 1.5.  
+If you have any suggestions for improvement, please let me know. If you need help with Quarto, you are welcome to drop by during my office hours. All informations on how to contact me can be found on my [personal website](https://hubchev.github.io/). 
+
+
+
+You can download the template with the corresponding files on studynet and here: [https://github.com/hubchev/temp_apa_en](https://github.com/hubchev/temp_apa_en).
+
+In the following sections, I will show you a little about how to use Quarto to write and format text. If you need more information about Quarto, you can get a lot of information from @Schneider2024quarto and the website [https://quarto.org/](https://quarto.org/).
+
+# Formatting Text
+
+
+## Set Sections and Format Text
+
+APA strictly regulates the formatting of headings, see:
+[https://apastyle.apa.org/style-grammar-guidelines/paper-format/headings](https://apastyle.apa.org/style-grammar-guidelines/paper-format/headings) 
+
+
+### This Is a Subsection
+
+A section should not come alone, so...
+
+### The Second Subsection
+
+This is where your text belongs.
+
+
+## Bold and Italics
+
+**This is bold text**
+
+__This is bold text__
+
+*This is italic text*
+
+_This is italic text_
+
+
+
+## Lists
+
+- Create a list by starting a line with `+`, `-` or `*`
+- Sublists are created by indenting by 2 spaces:
+  - Changing the selection character forces the start of a new list:
+    * bli
+    * bla
+    * blubb
+- Very simple!
+
+Numbered lists are simple:
+
+1. one argument. 
+2. another argument.
+3. the best argument.
+
+1. you can use consecutive numbers...
+1. ...or keep all numbers as `1.`
+
+You can also start numbering with a higher number:
+
+57. foo
+1. bar
+
+## Formulas
+
+If $a \ne 0$, there are two solutions to the equation $(ax^2 + bx + c = 0)$ and they are 
+$$ x = \frac{-b \pm \sqrt{b^2-4ac}}{2a} $$
+
+## [Footnotes](https://github.com/markdown-it/markdown-it-footnote)
+
+Footnote 1 Reference[^first].
+
+Footnote 2 Reference [^second].
+
+Inline footnote^[text of inline footnote] Definition.
+
+Double footnote reference[^second].
+
+[^first]: Footnote **may contain markup**
+
+    and multiple paragraphs.
+
+[^second]: Footnote text.
+
+
+## Tables
+
+Tables can be created flexibly with Markdown. The possibilities are explained on the website [https://quarto.org/docs/authoring/tables.html](https://quarto.org/docs/authoring/tables.html). @tbl-example, for example, is created with Markdown code.
+
+| Default | Left | Right | Center |
+|---------|:-----|------:|:------:|
+| 12 | 12 | 12 | 12 |
+| 123 | 123 | 123 | 123 |
+| 1 | 1 | 1 | 1 |
+
+: An Example Table Created With Markdown {#tbl-example apa-note="Here is a note."}
+
+## Figures
+
+### Include Image Files {#sec-imageload}
+
+In @fig-logo you can see the logo of the university. In @fig-logo2, the logo is displayed smaller and integrated using a different method. However, both methods are practically equivalent. Finally, the tiny logo in @fig-logo3 offers another method of integrating images. 
+
+![A Large Logo](logo.png){
+  #fig-logo
+  width="3in" 
+  apa-note="Here is a note about the image."
+  }
+
+::: {#fig-logo2 fig-align="left"}
+![](logo.png){width=30%}
+
+_Note._ There is also a note about the image here.
+
+A Medium Sized Logo.
+:::
+
+```{r}
+#| label: fig-logo3
+#| echo: false
+#| fig-cap: "The Tiny Logo of the University."
+#| apa-note: "There is also a note about the image here."
+#| fig-width: 2
+
+knitr::include_graphics("logo.png")
+```
+
+### Include Graphics Created With R
+
+In @fig-plotcar a scatterplot is visualized which was generated directly in R. This has the advantage that the data is generated and visualized directly in Quarto. The data is therefore always up-to-date, changes can be made directly here, the work is completely transparent and replicable. In addition, there is no need to save and export the graphic. 
+
+In the Appendix [-@sec-Ap1], you find another exampl, that is,  @fig-logo4.   Appendix [-@sec-Ap2] contains  @fig-logo5.
+
+```{r}
+#| label: fig-plotcar
+#| echo: false
+#| fig-cap: "This Is a Caption for an Ugly Image."
+#| apa-note: "There is also a note about the image here."
+#| fig-width: 2
+#| fig-height: 3
+
+plot(cars)
+```
+
+# Sources
+
+## BibTeX
+
+This template comes with the file `literatur.bib`. This is a BibTeX file and makes it easier to cite sources and create bibliographies. Here is an explanation of how a BibTeX file works and why it is useful.
+
+A BibTeX file makes it possible to store and organize all references in one place. This makes it easier to manage sources, especially for large works. Quarto can automatically access the BibTeX file to create citations and bibliographies. This saves time and reduces errors compared to creating bibliographies manually. By using a BibTeX file, citations and bibliographies are formatted consistently, according to the specifications of the respective citation style. I recommend the use of a reference management program. You can find more information on this in @sec-jabref.
+
+A BibTeX file is a text-based file with the extension `.bib` that contains bibliographic entries. Each entry in the file describes a source (e.g. a book, an article, a website) and contains various fields such as author, title, year and publisher. As an example, I have packed all possible partly fictitious entries into the file. Here are the first lines of the file:
+
+```{verbatim}
+@Article{Huber2016,
+  author = {Stephan Huber and Christoph Rust},
+  title = {osrmtime: Calculate Travel Time and Distance with {OpenStreetMap} Data Using the {Open Source Routing Machine} ({OSRM})},
+  journal = {The Stata Journal},
+  year = {2016},
+  volume = {16},
+  number = {2},
+  pages = {416-423}
+}
+```
+
+Each literature entry has a similar structure. First comes the specification of the type of literature (here: `@Article`). Then the so-called BibTeX key (here: `Huber2016`). This makes it possible to set a corresponding reference in the text, see @sec-cite. Finally, there is the information that is further processed by the selected citation style (default: APA 7). In Appendix [-@sec-bibtexfile] you find the BibTeX entries for various types of documents.
+
+
+## Literature Management {#sec-jabref}
+
+A BibTeX file can quickly become confusing. I therefore recommend using a reference management program such as JabRef, see: [www.jabref.org](www.jabref.org). The program is free and works on all your devices and with all operating systems. In particular, it can handle BibTeX files well. You may wonder what a BibTeX file is. Install JabRef and open the `bibliography.bib` file of this template, then you will understand what I mean.
+
+
+##  APA, Chicago, and CSL {#sec-apa}
+
+The predefined bibliography style of this template is APA in the 7th edition. You can change this. To do this, simply specify the corresponding style in the (YAML) header of this template. This is done using a file with the extension `CSL` which stands for "Citation Style Language". This file contains the citation rules so that the computer can implement them. On [https://www.zotero.org/styles](https://www.zotero.org/styles) you will find a variety of styles. For example, if you want to use APA in the 6th edition, enter the following in the header:
+
+```{verbatim}
+csl: "https://www.zotero.org/styles/apa-6th-edition"
+```
+If you want to use Chicago Manual Stlye in the 17th edition, enter the following in the header:
+
+```{verbatim}
+csl: "https://www.zotero.org/styles/chicago-author-date" 
+```
+
+## Cite Literature {#sec-cite}
+
+Other works are often cited in scientific texts. This can be done in many different ways. @tbl-letters shows how to cite. 
+
+
+
+| Code | How it appears in the text |
+|------------------------------|------------------------------------|
+| `@Huber2016` | @Huber2016 |
+| `@Huber2016[2]` | @Huber2016[2] |
+| `[@Huber2016]` | [@Huber2016] |
+| `[@Huber2016, 3-5]` | [@Huber2016, 3-5] |
+| `[@Huber2016; @Aust2023]` | [@Huber2016; @Aust2023] |
+| `[see @Aust2023, p. 31; @Huber2016, p. 13]` | [see @Aust2023, p. 31; @Huber2016, p. 13] |
+
+: This Is How Literature Can Be Cited {#tbl-letters  data-quarto-disable-processing="true"}
+
+
+Hyperlinks can also be set. For example, `[Google](www.google.de)` appears as [Google](www.google.de).
+In academic papers, sources should always be included in the bibliography and hyperlinks do not work in printed form. Here is an example: [Google](www.google.de) is a popular online search engine [see @Google2023Google]. 
+
+\subsection{Various Formats}
+	
+Here are some fictitious examples of different types of literature:
+@unpublished,
+@techreport,
+@phdthesis,
+@misc,
+@mastersthesis,
+@incollection,
+@inbook,
+@conference,
+@booklet,
+@book,
+@article,
+@proceedings,
+@webpage.
+
+
+The corresponding bibtex file should contain the entries. They are displayed in @sec-bibtexfile.
+
+
+
+\clearpage
+# References {-}
+::: {#refs}
+:::
+
+\clearpage
+\appendix
+
+# Additional Figures {#sec-Ap1}
+
+
+Here is text and @fig-logo4.
+
+![Logo of the University.](logo.png){
+  #fig-logo4
+  fig-pos="h"
+  width="2in" 
+  apa-note="This is the logo of Hochschule Fresenius."
+  }
+
+\newpage
+# Second Attachment {#sec-Ap2}
+
+Here is text and @fig-logo5.
+
+![The Logo Again](logo.png){
+  #fig-logo5
+  fig-pos="h"
+  width="2in" 
+  apa-note="This is the logo of Hochschule Fresenius."
+  }
+  
+
+\newpage
+# BibTex file {#sec-bibtexfile}
+
+
+
+```{verbatim}
+	@Unpublished{unpublished,
+		author = {Andy Unpublished},
+		title  = {The title of the work},
+		month  = {7},
+		year   = {1993},
+	}
+	
+	@TechReport{techreport,
+		author      = {Peter WorkingPaper},
+		title       = {The title of the work},
+		institution = {The institution that published},
+		year        = {1993},
+		number      = {2},
+		address     = {The address of the publisher},
+		month       = {7},
+	}
+	
+	@PhdThesis{phdthesis,
+		author  = {Andreas PHD},
+		title   = {The title of the work},
+		school  = {The school of the thesis},
+		year    = {2011},
+		address = {The address of the publisher},
+		month   = {7},
+	}
+	
+	@Misc{misc,
+		author       = {Alexandra Misc},
+		title        = {The title of the work},
+		howpublished = {How it was published},
+		month        = {4},
+		year         = {1993},
+	}
+	
+	@MastersThesis{mastersthesis,
+		author  = {Alex Masterthesis},
+		title   = {The title of the work},
+		school  = {The school of the thesis},
+		year    = {2004},
+		address = {The address of the publisher},
+		month   = {10},
+	}
+	
+	@InCollection{incollection,
+		author    = {Eli Editor},
+		title     = {The title of the work},
+		booktitle = {The title of the book},
+		publisher = {The name of the publisher},
+		year      = {2022},
+		editor    = {The editor},
+		volume    = {4},
+		series    = {2},
+		chapter   = {8},
+		pages     = {101-114},
+		address   = {The address of the publisher},
+		edition   = {3},
+		month     = {7},
+	}
+	
+	@InBook{inbook,
+		chapter   = {8},
+		pages     = {201-213},
+		title     = {The title of the work},
+		publisher = {The name of the publisher},
+		year      = {1993},
+		author    = {Suzy Inbook},
+		volume    = {4},
+		series    = {5},
+		address   = {The address of the publisher},
+		edition   = {3},
+		month     = {7},
+	}
+	
+	@Conference{conference,
+		author       = {David Conference},
+		title        = {The title of the work},
+		booktitle    = {The title of the book},
+		year         = {1986},
+		editor       = {The editor},
+		volume       = {4},
+		series       = {5},
+		pages        = {213},
+		address      = {The address of the publisher},
+		month        = {7},
+		organization = {The organization},
+		publisher    = {The publisher},
+	}
+	
+	@Booklet{booklet,
+		title        = {The title of the work},
+		author       = {Betty Booklet},
+		howpublished = {How it was published},
+		address      = {The address of the publisher},
+		month        = {7},
+		year         = {1996},
+	}
+	
+	@Book{book,
+		title     = {The title of the work},
+		publisher = {The name of the publisher},
+		year      = {2023},
+		author    = {Debbie Book},
+		volume    = {4},
+		series    = {10},
+		address   = {The address},
+		edition   = {3},
+		month     = {7},
+		isbn      = {3257442892},
+	}
+	
+	@Article{article,
+		author  = {Sepp Article},
+		title   = {The title of the work},
+		journal = {The name of the journal},
+		year    = {2011},
+		volume  = {4},
+		number  = {2},
+		pages   = {201-213},
+		month   = {7},
+	}
+	
+	@Proceedings{proceedings,
+		title        = {The title of the work},
+		year         = {1993},
+		editor       = {Luc Proceedings},
+		volume       = {4},
+		series       = {5},
+		address      = {The address of the publisher},
+		publisher    = {The name of the publisher},
+		month        = {7},
+		organization = {The organization},
+	}
+	
+	@Misc{webpage,
+		author = {Author Website},
+		title  = {Website Title},
+		year   = {2023},
+		note   = {Accessed on April 14, 2023},
+		url    = {http://website-url.com},
+	}
+
+```
+
+

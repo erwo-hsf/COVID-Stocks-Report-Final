@@ -1,0 +1,13 @@
+install.packages("quarto")
+install.packages("tinytex")
+install.packages("usethis")
+library("usethis")
+usethis::use_course("hubchev/temp_apa_en", destdir = getwd())
+system("quarto --version")
+quarto::quarto_add_extension("wjschne/apaquarto")
+#| include: false
+cat("WD:", getwd(), "\n")
+cat("Has scripts dir?", dir.exists("scripts"), "\n")
+print(list.files())
+list.files("scripts", full.names = TRUE)
+source(list.files("scripts", pattern = "covid_data_new_code", full.names = TRUE)[1])
